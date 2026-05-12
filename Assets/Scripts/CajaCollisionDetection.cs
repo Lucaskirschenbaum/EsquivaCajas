@@ -9,16 +9,16 @@ public class CajaCollisionDetection : MonoBehaviour
     void Start()
     {
         cajaMovementScript = GetComponent<CajaMovement>();
-   
     }
-    
 
     void OnCollisionEnter(Collision col)
     {
         if(col.gameObject.CompareTag("Piso"))
         {
-            cajaMovementScript.MoveBoxToRandomPosition();
+            if(cajaMovementScript.activa)
+                cajaMovementScript.MoveBoxToRandomPosition();
+            else
+                Time.timeScale = 0f;
         }
     }
-    
 }

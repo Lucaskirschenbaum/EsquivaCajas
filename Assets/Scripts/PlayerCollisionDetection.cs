@@ -9,7 +9,7 @@ public class PlayerCollisionDetection : MonoBehaviour
         if(col.gameObject.CompareTag("Caja"))
         {
             Destroy(gameObject);
+            col.gameObject.GetComponent<CajaMovement>().activa = false;
         }
     }
-    
 }

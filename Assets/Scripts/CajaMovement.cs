@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CajaMovement : MonoBehaviour
-
 {
     public float velocidad;
+    public float incremento = 0.5f;
+    public bool activa = true;
     float initialYValue;
-    // Update is called once per frame
 
     void Start()
     {
         initialYValue = transform.position.y;
     }
+
     void Update()
     {
         transform.Translate(0,-velocidad * Time.deltaTime, 0);
-        
     }
 
     public void MoveBoxToRandomPosition()
@@ -34,7 +34,7 @@ public class CajaMovement : MonoBehaviour
         {
             newPosition.x = 2;
         }
-        
+        velocidad += incremento;
         newPosition.y = initialYValue;
         transform.position = newPosition;
     }
